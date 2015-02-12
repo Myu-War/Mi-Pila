@@ -30,7 +30,6 @@ public class Playground {
             }
             else if(ent==')'){
                 if(s.isEmpty()){
-                    s.push(ent);
                     evaluacion="Tiene parentesis mal puestos.";
                 }
                 else{
@@ -38,13 +37,9 @@ public class Playground {
                 }
             }
         }
-        System.out.print(evaluacion);
-       /* if(s.isEmpty()){
-            System.out.print("Todo bien.");
+        if(!s.isEmpty()){
+            evaluacion="Tiene parentesis mal puestos.";
         }
-        else{
-            System.out.print("Tiene parentesis mal puestos.");
-        }
-        */
+        System.out.print("\n"+evaluacion);
     }
 }
