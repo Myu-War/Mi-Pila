@@ -24,13 +24,20 @@ public class miPila implements StackADT {
     }
 
     @Override
-    public Object pop() {
+    public Object pop() throws Unchecked {
+        if(list.isEmpty()){
+            throw new Unchecked ("La pila esta vacia.");
+        }
         return list.remove(list.size() - 1);
     }
 
     @Override
-    public Object peek() {
+    public Object peek() throws Unchecked{
         Object res = list.get(list.size() - 1);
+        
+        if(list.isEmpty()){
+            throw new Unchecked ("La pila esta vacia.");
+        }
 
         return res;
     }
