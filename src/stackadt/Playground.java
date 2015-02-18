@@ -54,7 +54,7 @@ public class Playground {
              s.push(ent);
          }
          for(int i=0;i<ent2.length();i++){
-             if(s.peek()!=' '){
+             if(!s.peek().equals(' ')){
                 cad.append(s.peek());
              }
              s.pop();
