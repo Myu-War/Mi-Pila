@@ -15,9 +15,10 @@ public class miPila implements StackADT {
 
     public ArrayList<Object> list;
 
-    public miPila(){
-        this.list=new ArrayList();
+    public miPila() {
+        this.list = new ArrayList();
     }
+
     @Override
     public void push(Object elem) {
         list.add(elem);
@@ -25,18 +26,24 @@ public class miPila implements StackADT {
 
     @Override
     public Object pop() throws Unchecked {
-        if(list.isEmpty()){
-            throw new Unchecked ("La pila esta vacia.");
+        Object res;
+
+        if (list.isEmpty()) {
+            throw new Unchecked("La pila esta vacia.");
         }
-        return list.remove(list.size() - 1);
+
+        res = peek();
+        list.remove(list.size() - 1);
+
+        return res;
     }
 
     @Override
-    public Object peek() throws Unchecked{
+    public Object peek() throws Unchecked {
         Object res = list.get(list.size() - 1);
-        
-        if(list.isEmpty()){
-            throw new Unchecked ("La pila esta vacia.");
+
+        if (list.isEmpty()) {
+            throw new Unchecked("La pila esta vacia.");
         }
 
         return res;
@@ -62,6 +69,4 @@ public class miPila implements StackADT {
 
         return cad.toString();
     }
-
- 
 }
