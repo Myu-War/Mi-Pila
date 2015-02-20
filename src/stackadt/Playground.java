@@ -16,50 +16,45 @@ public class Playground {
      * @param args the command line arguments
      */
        public static void main(String[] args) {
-        miPila s = new miPila();
-        Scanner lec = new Scanner(System.in);
-        char ent;
-        String ent2, evaluacion="Todo bien. ☺";
-        StringBuilder cad = new StringBuilder();
-        StringBuilder cad2 = new StringBuilder();
+        miPila miPila = new miPila();
+        Scanner scannerLector = new Scanner(System.in);
+        char charLector;
+        String stringEntrante, veredicto="Todo bien. ☺";
+        StringBuilder evaluadorPalindromo = new StringBuilder();
         
         System.out.print("Ingresa un String para ser evaluado.\n");
-        ent2=lec.nextLine();
-        for(int i=0;i<ent2.length();i++){
-            ent=ent2.charAt(i);
-            if(ent=='('){
-                s.push(ent);
+        stringEntrante=scannerLector.nextLine();
+        for(int i=0;i<stringEntrante.length();i++){
+            charLector=stringEntrante.charAt(i);
+            if(charLector=='('){
+                miPila.push(charLector);
             }
-            else if(ent==')'){
-                if(s.isEmpty()){
-                    evaluacion="Tiene parentesis mal puestos. ▓▓▒▒▒▓▓";
+            else if(charLector==')'){
+                if(miPila.isEmpty()){
+                    veredicto="Tiene parentesis mal puestos. ▓▓▒▒▒▓▓";
                 }
                 else{
-                s.pop();
+                miPila.pop();
                 }
             }
         }
-        if(!s.isEmpty()){
-            evaluacion="Tiene parentesis mal puestos. ▓▓▒▒▒▓▓";
+        if(!miPila.isEmpty()){
+            veredicto="Tiene parentesis mal puestos. ▓▓▒▒▒▓▓";
         }
-        System.out.print("\n"+evaluacion);
+        System.out.print("\n"+veredicto);
         
         System.out.print("\nIngresa un String para ser evaluado.\n");
-        ent2=lec.nextLine();
-         for(int i=0;i<ent2.length();i++){
-             ent=ent2.charAt(i);
-             if(ent!=' '){
-                cad2.append(ent);
-             }
-             s.push(ent);
+        stringEntrante=scannerLector.nextLine();
+        stringEntrante=stringEntrante.replaceAll(" ", "");
+         for(int i=0;i<stringEntrante.length();i++){
+             charLector=stringEntrante.charAt(i);
+             miPila.push(charLector);
          }
-         for(int i=0;i<ent2.length();i++){
-             if(!s.peek().equals(' ')){
-                cad.append(s.peek());
-             }
-             s.pop();
+         for(int i=0;i<stringEntrante.length();i++){
+             evaluadorPalindromo.append(miPila.peek());
+             miPila.pop();
          }
-         if(cad2.toString().equals(cad.toString())){
+         if(evaluadorPalindromo.toString().equals(stringEntrante.toString())){
               System.out.print("\nEs un palindromo‼ ☻☺☻☺☻\n");
          }
          else{
