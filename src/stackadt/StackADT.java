@@ -21,6 +21,8 @@ public interface StackADT <T>{
     public int size();
     
     public String toString();
+    
+    public boolean evaluaParentesis(String valor);
     /**
      * @param args the command line arguments
      */

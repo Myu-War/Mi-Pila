@@ -40,13 +40,11 @@ public class miPila implements StackADT {
 
     @Override
     public Object peek() throws Unchecked {
-        Object res = list.get(list.size() - 1);
-
         if (list.isEmpty()) {
             throw new Unchecked("La pila esta vacia.");
         }
 
-        return res;
+        return list.get(list.size()-1);
     }
 
     @Override
@@ -68,5 +66,31 @@ public class miPila implements StackADT {
         }
 
         return cad.toString();
+    }
+
+    @Override
+    public boolean evaluaParentesis(String stringEntrante) {
+         char charLector;
+         boolean veredicto=true;
+        
+         for(int i=0;i<stringEntrante.length();i++){
+            charLector=stringEntrante.charAt(i);
+            if(charLector=='('){
+               push(charLector);
+            }
+            else if(charLector==')'){
+                if(isEmpty()){
+                    veredicto=false;
+                }
+                else{
+                pop();
+                }
+            }
+        }
+        if(!isEmpty()){
+            veredicto=false;
+        }
+        
+        return veredicto;
     }
 }
