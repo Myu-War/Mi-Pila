@@ -72,7 +72,8 @@ public class miPila implements StackADT {
     public boolean evaluaParentesis(String stringEntrante) {
          char charLector;
          boolean veredicto=true;
-        
+         
+         stringEntrante.replaceAll(" ", "");
          for(int i=0;i<stringEntrante.length();i++){
             charLector=stringEntrante.charAt(i);
             if(charLector=='('){
